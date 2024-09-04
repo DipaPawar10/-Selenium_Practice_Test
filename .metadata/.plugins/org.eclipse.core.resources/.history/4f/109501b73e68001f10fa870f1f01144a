@@ -1,0 +1,69 @@
+package ExtendReportDemo;
+
+import org.testng.SkipException;
+import org.testng.annotations.*;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
+
+import junit.framework.Assert;
+
+public class BasicExtendReportClass {
+	
+	ExtentSparkReporter htmlReporter;
+	ExtentReports reports;
+	ExtentTest test;
+
+	@BeforeTest
+	public void statReport() {
+		htmlReporter =  new ExtentSparkReporter("ExtentReportDemo.html");
+		reports = new ExtentReports();
+		reports.attachReporter(htmlReporter);
+		
+		//add environment details
+		reports.setSystemInfo("Machine"," testpc1");
+		reports.setSystemInfo("OS","window11");
+		reports.setSystemInfo("User","Dipa");
+		
+		//configuration to change look and feel
+		htmlReporter.config().setDocumentTitle("Extend report demo");
+		htmlReporter.config().setReportName("Test Report");
+		htmlReporter.config().setTheme(Theme.STANDARD);
+		htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm '('zzz')'");
+		
+		
+	}
+	
+	@Test
+	public void LaunchBrowser() {
+		//create test
+		test = reports.createTest("Launch Browser and openurl");
+		Assert.assertTrue(true);
+	}
+	
+	@Test
+	public void VerifyTitle() {
+		test = reports.createTest("Verify title");
+		Assert.assertTrue(false);
+	}
+	
+	@Test
+	public void VerifyLogo() {
+		test = reports.createTest("Verify Logo");
+		Assert.assertTrue(true);
+	}
+	
+	@Test
+	public void VerifyEmail() {
+		test = reports.createTest("Verify Email");
+		throw new SkipException("Skipping this test case with exception...");
+	}
+	
+	@Test
+	public void VerifyUsername() {
+		test = reports.createTest("Verify username");
+		Assert.assertTrue(true);
+	}
+}

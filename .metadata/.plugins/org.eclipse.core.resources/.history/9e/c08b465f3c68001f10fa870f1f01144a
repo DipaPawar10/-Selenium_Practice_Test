@@ -1,0 +1,7 @@
+package ExtendReportDemo;
+
+public class BasicExtendReportClass {
+	
+	ExtentSparkReporter htmlReporter;
+
+}

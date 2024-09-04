@@ -1,0 +1,43 @@
+package HeadLessBrowserDemo;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
+public class HtmlHeadlessBrowserTesting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		//HtLaunch HTMLunit driver
+		HtmlUnitDriver driver= new HtmlUnitDriver();
+		
+		
+		driver.get("https://www.google.com/");
+		System.out.println("Before Search:" + driver.getTitle());
+		
+		WebElement searchbox = driver.findElement(By.name("q"));
+		searchbox.sendKeys("India Gate");
+		searchbox.sendKeys(Keys.ENTER);
+		
+		System.out.println("After Search:" + driver.getTitle());
+
+		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		driver.quit();
+
+
+	}
+
+}

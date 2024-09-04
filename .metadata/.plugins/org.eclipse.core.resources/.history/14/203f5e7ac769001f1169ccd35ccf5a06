@@ -1,0 +1,10 @@
+package CaptureSorceImageURL;
+
+public class CaptureImageSourceUrl {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

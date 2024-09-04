@@ -1,0 +1,11 @@
+package ExtendReportDemo;
+
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class BasicExtendReportClass {
+	
+	ExtentSparkReporter htmlReporter;
+	ExtendReports reports;
+	ExtentTest test;
+
+}
